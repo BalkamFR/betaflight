@@ -1,0 +1,166 @@
+# diff all defaults
+
+# version
+# Betaflight / STM32F7X2 (S7X2) 4.3.2 Nov 28 2022 / 07:30:19 (60c9521) MSP API: 1.44
+
+# config: YES
+
+# start the command batch
+batch start
+
+# reset configuration to default settings
+defaults nosave
+
+board_name AXISFLYINGF7PRO
+manufacturer_id AXFL
+mcu_id 005400273433510d31333635
+signature 
+
+# name: MANTA 5
+#feature -RX_SERIAL
+#feature -GPS
+
+# feature
+feature -RX_PARALLEL_PWM
+#feature -LED_STRIP
+feature RX_SERIAL
+feature GPS
+#feature RX_PARALLEL_PWM
+feature LED_STRIP
+
+# serial
+#serial 0 0 115200 57600 0 115200
+serial 0 1 115200 57600 0 115200
+#serial 2 0 115200 57600 0 115200
+serial 2 2 115200 115200 0 115200
+#beacon -RX_SET
+
+# beacon
+beacon RX_SET
+
+# led
+#led 0 0,0::C:0
+led 0 13,15::C:8
+#led 1 0,0::C:0
+led 1 14,15::C:8
+#led 2 0,0::C:0
+led 2 15,15::C:8
+
+# aux
+#aux 0 0 0 900 900 0 0
+aux 0 0 0 900 1300 0 0
+
+# master
+#set dyn_notch_count = 3
+set dyn_notch_count = 1
+#set dyn_notch_q = 300
+set dyn_notch_q = 500
+#set acc_calibration = 0,0,0,0
+set acc_calibration = -9,-6,38,1
+#set mag_hardware = AUTO
+set mag_hardware = NONE
+#set serialrx_provider = SPEK1024
+set serialrx_provider = CRSF
+#set dshot_bidir = OFF
+set dshot_bidir = ON
+#set motor_pwm_protocol = DISABLED
+set motor_pwm_protocol = DSHOT600
+#set motor_output_reordering = 0,1,2,3,4,5,6,7
+set motor_output_reordering = 3,2,1,0,4,5,6,7
+#set failsafe_procedure = DROP
+set failsafe_procedure = GPS-RESCUE
+#set yaw_motors_reversed = OFF
+set yaw_motors_reversed = ON
+#set small_angle = 25
+set small_angle = 180
+#set gps_provider = NMEA
+set gps_provider = UBLOX
+#set gps_rescue_allow_arming_without_fix = OFF
+set gps_rescue_allow_arming_without_fix = ON
+#set osd_vbat_pos = 234
+set osd_vbat_pos = 14785
+#set osd_link_quality_pos = 234
+set osd_link_quality_pos = 14799
+#set osd_tim_2_pos = 234
+set osd_tim_2_pos = 14792
+#set osd_craft_name_pos = 234
+set osd_craft_name_pos = 14369
+#set osd_gps_sats_pos = 234
+set osd_gps_sats_pos = 14594
+#set osd_home_dir_pos = 234
+set osd_home_dir_pos = 14629
+#set osd_home_dist_pos = 234
+set osd_home_dist_pos = 14561
+#set osd_displayport_device = AUTO
+set osd_displayport_device = MSP
+#set debug_mode = NONE
+set debug_mode = GYRO_SCALED
+#set displayport_msp_serial = -1
+set displayport_msp_serial = 0
+#set gyro_1_sensor_align = CW0
+set gyro_1_sensor_align = CW90
+#set gyro_1_align_yaw = 0
+set gyro_1_align_yaw = 900
+#set name = -
+set name = MANTA 5
+
+profile 0
+
+# profile 0
+#set p_pitch = 47
+set p_pitch = 51
+#set i_pitch = 84
+set i_pitch = 92
+#set d_pitch = 46
+set d_pitch = 48
+#set f_pitch = 125
+set f_pitch = 137
+#set d_min_roll = 30
+set d_min_roll = 34
+#set d_min_pitch = 34
+set d_min_pitch = 41
+#set feedforward_jitter_factor = 7
+set feedforward_jitter_factor = 12
+#set dyn_idle_min_rpm = 0
+set dyn_idle_min_rpm = 30
+#set simplified_d_gain = 100
+set simplified_d_gain = 115
+#set simplified_dmax_gain = 100
+set simplified_dmax_gain = 50
+#set simplified_pitch_d_gain = 100
+set simplified_pitch_d_gain = 105
+#set simplified_pitch_pi_gain = 100
+set simplified_pitch_pi_gain = 110
+
+profile 1
+
+profile 2
+
+# restore original profile selection
+profile 0
+
+rateprofile 0
+
+# rateprofile 0
+#set roll_srate = 67
+set roll_srate = 55
+#set pitch_srate = 67
+set pitch_srate = 57
+#set yaw_srate = 67
+set yaw_srate = 50
+
+rateprofile 1
+
+rateprofile 2
+
+rateprofile 3
+
+rateprofile 4
+
+rateprofile 5
+
+# restore original rateprofile selection
+rateprofile 0
+
+# save configuration
+save
